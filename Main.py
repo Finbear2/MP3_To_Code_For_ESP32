@@ -155,7 +155,7 @@ def Detect_Notes(File_Path):
     
     print("Please wait while the mp3 is being loaded...")
     
-    y, sr = librosa.load(File_Path)
+    y, sr = librosa.load(f"Store_Songs_Here/{File_Path}")
     
     print("MP3 loaded successfully!\n\n")
 
@@ -231,7 +231,7 @@ def Save_Song_As_MP3(Notes):
     Output.export("output_song.mp3", format="mp3")
     print("MP3 generated \n \n")
 
-Notes = Detect_Notes(input("Enter the path to the MP3 file >>> "))
+Notes = Detect_Notes(input("Enter the name of the mp3 file e.g. Toast.mp3 >>> "))
 
 print("Done!")
 
