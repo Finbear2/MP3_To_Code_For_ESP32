@@ -123,7 +123,7 @@ Note_Frequencies = {
     "NOTE_DS8": 4978.03,
 }
 
-Minimum_Duration = 0.2
+Minimum_Duration = 0.35
 
 # *Functions*
 
@@ -162,7 +162,7 @@ def Detect_Notes(File_Path):
     # Get Frame Length and Hop Length from user input with defaults
 
     Frame_Length = int(input("Frame Length (Higher the beter, but slower. Standared is 2048) >>> ") or 2048)
-    Hop_Length = int(input("Hop Length (Higher the beter, but slower. Standard is 1024) >>> ") or 1024)
+    Hop_Length = int(input("Hop Length (Lower The Better, but slower. Standard is 4096) >>> ") or 4096)
     Minimum_Duration = float(input(f"Minimum note duration (Default is {Minimum_Duration}) >>> ") or Minimum_Duration)
 
     print("\n\nDetecting Notes...")
