@@ -162,7 +162,7 @@ def Detect_Notes(File_Path):
     # Get Frame Length and Hop Length from user input with defaults
 
     Frame_Length = int(input("Frame Length (Higher the beter, but slower. Standared is 2048) >>> ") or 2048)
-    Hop_Length = int(input("Hop Length (Higher the beter, but slower. Standard is 512) >>> ") or 512)
+    Hop_Length = int(input("Hop Length (Higher the beter, but slower. Standard is 1024) >>> ") or 1024)
     Minimum_Duration = float(input(f"Minimum note duration (Default is {Minimum_Duration}) >>> ") or Minimum_Duration)
 
     print("\n\nDetecting Notes...")
@@ -267,12 +267,6 @@ for note, time, duration in Notes:
 
 print("buzzer.end();\n")
 
-User_Input_For_MP3 = input("Would you like to save the output as an mp3 file? (May have certain popping sounds when switching between notes) (y/n) >>> ").lower()
-
-if User_Input_For_MP3 == 'y':
-
-    Save_Song_As_MP3(Notes)
-
 User_Input_For_Text = input("Would you like to save the output to a text file? (y/n) >>> ").lower()
 
 if User_Input_For_Text == 'y':
@@ -303,3 +297,9 @@ if User_Input_For_Text == 'y':
         f.write("buzzer.end();\n")
         
     print("Output saved to output.txt")
+
+User_Input_For_MP3 = input("Would you like to save the output as an mp3 file? (May have certain popping sounds when switching between notes) (y/n) >>> ").lower()
+
+if User_Input_For_MP3 == 'y':
+
+    Save_Song_As_MP3(Notes)
