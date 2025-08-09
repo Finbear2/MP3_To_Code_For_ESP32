@@ -1,5 +1,5 @@
-# Test song is "Kill Your Darlings" by "Steve Combs"
-# Link: https://freemusicarchive.org/music/Steve_Combs/Simple_Machines_1174/Steve_Combs_-_Simple_Machines_-_09_Kill_Your_Darlings/
+# Test song is "Sunday Picnic" by "Lobo Loco"
+# Link: https://freemusicarchive.org/music/Lobo_Loco/RETRO/Sunday_Picnic_ID_719/
 
 import librosa
 import numpy as np
@@ -9,6 +9,8 @@ import numpy as np
 Note_Names = [
     "NOTE_C", "NOTE_CS", "NOTE_D", "NOTE_DS", "NOTE_E", "NOTE_F", "NOTE_FS", "NOTE_G", "NOTE_GS", "NOTE_A", "NOTE_AS", "NOTE_B"
 ]
+
+Minimum_Duration = 0.1
 
 # *Functions*
 
@@ -36,13 +38,16 @@ def HZ_To_Note(Frequency):
     
 def Detect_Notes(File_Path):
     
+    global Minimum_Duration
+    
     y, sr = librosa.load(File_Path)
 
     # Get Frame Length and Hop Length from user input with defaults
 
     Frame_Length = int(input("Frame Length (Higher the beter, but slower. Standared is 2048) >>> ") or 2048)
-    Hop_Length = int(input("Hop Length (Higher the beter, but slower. Standared is 512) >>> ") or 512)
-    
+    Hop_Length = int(input("Hop Length (Higher the beter, but slower. Standard is 512) >>> ") or 512)
+    Minimum_Duration = float(input(f"Minimum note duration (Default is {Minimum_Duration}) >>> ") or Minimum_Duration)
+
     # Get Pitches
     pitches, magnitudes = librosa.piptrack(y=y, sr=sr, n_fft=Frame_Length, hop_length=Hop_Length)
     
@@ -84,7 +89,18 @@ def Detect_Notes(File_Path):
 
 Notes = Detect_Notes(input("Enter the path to the MP3 file >>> "))
 
+Excess_Time = 0
+Last_Note = None
+
 for note, time, duration in Notes:
-    print(f"Note: {note}, Time: {time:.2f}s, Duration: {duration:.2f}s")
-    
+    if duration >= Minimum_Duration:
+        if Last_Note is None or Last_Note != note:
+            print(f'("{note}", {duration+Excess_Time:.2f}),')
+            Last_Note = note
+            Excess_Time = 0
+        else:
+            Excess_Time += duration
+    else:
+        Excess_Time += duration
+
 input("Press Enter to exit...")
