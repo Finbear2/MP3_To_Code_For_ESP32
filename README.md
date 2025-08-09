@@ -1,6 +1,6 @@
 # MP3 to Code For ESP32
 ---
-A simple app that retrieves notes for an MP3 file and converts them to buzzer code compatible with certain buzzer libraries for the ESP32. One of the devices that uses this is the PocketMage by Ashtf8. 
+A simple app that retrieves notes for an MP3 file and converts them to buzzer code compatible with certain buzzer libraries for the ESP32. One of the devices that uses this is the *PocketMage* by *Ashtf8*. 
 
 ## Before using
 
@@ -16,3 +16,15 @@ A simple app that retrieves notes for an MP3 file and converts them to buzzer co
 3. Specify the window frame length and the Hop length, though they are already fine-tuned for best performance for most files. If you want to keep the defaults, just press Enter and move on to the next text entry.
 4. Wait for the script to extract the notes
 5. Specify if you want to export it as a text file or an MP3 file.
+6. **You're Done!**
+
+## Thank You!
+
+Just wated to say thanks for even checking this out,it means the world to me :)
+
+# Other stuff
+
+- The included song is "Sunday Picnic" by "Lobo Loco", you can find it at https://freemusicarchive.org/music/Lobo_Loco/RETRO/Sunday_Picnic_ID_719/
+
+
+Hope you have a lovely day!
