@@ -86,3 +86,5 @@ Notes = Detect_Notes(input("Enter the path to the MP3 file >>> "))
 
 for note, time, duration in Notes:
     print(f"Note: {note}, Time: {time:.2f}s, Duration: {duration:.2f}s")
+    
+input("Press Enter to exit...")
