@@ -1,5 +1,5 @@
-# Test song is "Mutant Club" by "HoliznaCC0"
-# Link: https://freemusicarchive.org/music/holiznacc0/power-pop/mutant-club/
+# Test song is "Kill Your Darlings" by "Steve Combs"
+# Link: https://freemusicarchive.org/music/Steve_Combs/Simple_Machines_1174/Steve_Combs_-_Simple_Machines_-_09_Kill_Your_Darlings/
 
 import librosa
 import numpy as np
