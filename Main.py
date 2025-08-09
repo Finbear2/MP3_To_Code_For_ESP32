@@ -79,3 +79,7 @@ def Detect_Notes(File_Path):
         
     return Notes_With_Timings
 
+Notes = Detect_Notes(input("Enter the path to the MP3 file >>> "))
+
+for note, time, duration in Notes:
+    print(f"Note: {note}, Time: {time:.2f}s, Duration: {duration:.2f}s")
