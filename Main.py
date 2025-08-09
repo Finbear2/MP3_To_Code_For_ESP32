@@ -153,13 +153,19 @@ def Detect_Notes(File_Path):
     
     global Minimum_Duration
     
+    print("Please wait while the mp3 is being loaded...")
+    
     y, sr = librosa.load(File_Path)
+    
+    print("MP3 loaded successfully!\n\n")
 
     # Get Frame Length and Hop Length from user input with defaults
 
     Frame_Length = int(input("Frame Length (Higher the beter, but slower. Standared is 2048) >>> ") or 2048)
     Hop_Length = int(input("Hop Length (Higher the beter, but slower. Standard is 512) >>> ") or 512)
     Minimum_Duration = float(input(f"Minimum note duration (Default is {Minimum_Duration}) >>> ") or Minimum_Duration)
+
+    print("\n\nDetecting Notes...")
 
     # Get Pitches
     pitches, magnitudes = librosa.piptrack(y=y, sr=sr, n_fft=Frame_Length, hop_length=Hop_Length)
@@ -226,6 +232,8 @@ def Save_Song_As_MP3(Notes):
     print("MP3 generated \n \n")
 
 Notes = Detect_Notes(input("Enter the path to the MP3 file >>> "))
+
+print("Done!")
 
 # declare some more varibles
 
